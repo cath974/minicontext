@@ -2,13 +2,15 @@ import React from 'react';
 import ShoppingListContextProvider from './contexts/ShoppingListContext'
 import './App.css';
 import List from './components/List';
+import AddItemInput from './components/AddItemInput';
 
 function App() {
   return (
     <div className="App">
-       {/* <ShoppingListContextProvider> */}
+        <ShoppingListContextProvider>
         <List />
-      {/* </ShoppingListContextProvider> */}
+        <AddItemInput />
+       </ShoppingListContextProvider>
     </div>
   );
 }

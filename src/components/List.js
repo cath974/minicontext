@@ -1,40 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import AddItemInput from './AddItemInput';
+import React, { useContext } from 'react';
 import ListItem from './ListItem';
+import  { ShoppingListContext } from '../contexts/ShoppingListContext';
 
 
 const List = () => {
 
-    const [shoppings, setShoppings] = useState([
-        {item: 'Shopping1', id:1},
-        {item: 'Shopping2', id:2}
-    ]); 
-    const [counter, setCounter]= useState(0) 
+  const { shoppings, counter } = useContext(ShoppingListContext)
 
-    const addItem =(item) => {
-        setShoppings([...shoppings, { item , id:uuidv4() }])
-        setCounter(counter + 1)
-    }
-
-    // useEffect(() => {
-    //     setCounter(counter + 1)
-    // }, [shoppings])
-
-
-    return ( 
-        <div>
+    return shoppings.length ? ( 
+        <div className='shop-list'>
             <ul>
               {shoppings.map(shopp => 
-                <li key={shopp.id}>
-                    <ListItem item={shopp.item}/>
-                </li>
+                    <ListItem shopp={shopp} key={shopp.id}/>
                 )}
             </ul>
-            <AddItemInput addItemList={addItem}/>
             <div>{counter}</div>    
         </div>
-     );
+     ) : 
+     (
+        <div>no item in your list</div> 
+     )
 }
  
 export default List;

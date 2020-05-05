@@ -1,10 +1,13 @@
-import React from 'react';
+import React , { useContext } from 'react';
+import  { ShoppingListContext } from '../contexts/ShoppingListContext';
 
-const ListItem = ({item}) => {
+
+const ListItem = ({shopp}) => {
+    const {removeItem} = useContext(ShoppingListContext)
     return (
-        <div>
-        <div>{item}</div>
-        </div>
+        <li onClick={()=>removeItem(shopp.id)}>
+        <div>{shopp.item}</div>
+        </li>
       );
 }
  

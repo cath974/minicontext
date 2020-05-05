@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.shop-list{
+  margin: 20px;
+
+}
+
+.shop-list{
+  padding: 0px;
+ 
+}
+
+.shop-list li{
+  background: rgb(197, 155, 155);
+  border-radius: 4px;
+  padding: 10px;
+  list-style: none;
+}
+
+

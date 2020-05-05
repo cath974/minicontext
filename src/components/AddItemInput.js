@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import  { ShoppingListContext } from '../contexts/ShoppingListContext';
 
 
-const AddItemInput = ({addItemList}) => {
+const AddItemInput = () => {
+const { addItem } = useContext(ShoppingListContext)
 
-    const [item, setItem] = useState('');
+const [item, setItem] = useState('');
 
-    const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
-    addItemList(item);
+    addItem(item);
     setItem('');
-    }
+}
 
     return (  
         <form onSubmit={handleSubmit}>
