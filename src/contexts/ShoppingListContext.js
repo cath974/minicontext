@@ -9,17 +9,13 @@ const ShoppingListContextProvider = (props) => {
         {item: 'Shopping2', id:2},
     ]); 
     
-    const [counter, setCounter]= useState(0) ;
-
 
     const addItem =(item) => {
         setShoppings([...shoppings, { item , id:uuidv4() }])
-        setCounter(counter + 1)
     }
 
     const removeItem =(id) => {
         setShoppings(shoppings.filter(shopp => shopp.id!==id))
-        setCounter(counter - 1)
     }
 
         return (

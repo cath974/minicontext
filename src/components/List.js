@@ -5,7 +5,7 @@ import  { ShoppingListContext } from '../contexts/ShoppingListContext';
 
 const List = () => {
 
-  const { shoppings, counter } = useContext(ShoppingListContext)
+  const { shoppings } = useContext(ShoppingListContext)
 
     return shoppings.length ? ( 
         <div className='shop-list'>
@@ -14,12 +14,12 @@ const List = () => {
                     <ListItem shopp={shopp} key={shopp.id}/>
                 )}
             </ul>
-            <div>{counter}</div>    
+            <div>{shoppings.length}</div>    
         </div>
      ) : 
      (
         <div>no item in your list</div> 
      )
-}
+
  
 export default List;
